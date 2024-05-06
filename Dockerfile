@@ -8,5 +8,10 @@ FROM python:3.11-slim-bookworm
 WORKDIR /awsebcli
 COPY --from=Builder /opt/env /opt/env
 ENV PATH="/opt/env/bin:$PATH"
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive \
+    apt-get install --no-install-recommends --assume-yes \
+    git \
+    && rm -rf /var/lib/apt/lists/*
 ENV PYTHONUNBUFFERED=1
 ENTRYPOINT [ "eb" ]
