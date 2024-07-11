@@ -18,6 +18,7 @@ RUN apt-get update \
     apt-get install --no-install-recommends -qqy --assume-yes \
     git \
     make \
+    jq \
     && rm -rf /var/lib/apt/lists/* 
 
 ENV PYTHONUNBUFFERED=1
