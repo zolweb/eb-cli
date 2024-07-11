@@ -17,6 +17,7 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
     apt-get install --no-install-recommends -qqy --assume-yes \
     git \
+    make \
     && rm -rf /var/lib/apt/lists/* 
 
 ENV PYTHONUNBUFFERED=1
